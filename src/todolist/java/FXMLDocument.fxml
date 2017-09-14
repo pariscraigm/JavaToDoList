@@ -8,9 +8,9 @@
 
 <BorderPane fx:id="BorderPane" prefHeight="500" prefWidth="320" xmlns:fx="http://javafx.com/fxml/1" fx:controller="todolist.java.FXMLDocumentController">
     <top>    
-        <BorderPane>
+        <BorderPane fx:id="TopBar">
             <left>
-                <Label text="ToDoList"/>
+                <Label text="ToDoList" fx:id="TitleLabel"/>
             </left>
             <right>
                 <Button id="AddItemButton" onAction="#handleButtonAction" fx:id="AddItemButton" text="Add item"/>

@@ -25,10 +25,7 @@ import javafx.scene.control.ScrollPane;
  *
  * @author craig
  */
-public class FXMLDocumentController implements Initializable {
-    
-    @FXML
-    private Label label;
+public class FXMLDocumentController implements Initializable {  
     
     @FXML
     private VBox itemVBox;
@@ -51,6 +48,7 @@ public class FXMLDocumentController implements Initializable {
         Label nameLabel = new Label(name);
         TextField nameTextField = new TextField();
         Text descriptionText = new Text(description);
+        descriptionText.setWrappingWidth(200);
         TextField descriptionTextField = new TextField();
         CheckBox checkBox = new CheckBox();
         checkBox.setPadding(new Insets(10));
@@ -74,8 +72,9 @@ public class FXMLDocumentController implements Initializable {
                 descriptionTextField.clear();
                 vBox.getChildren().add(1,descriptionText);
             }
-            
+            String current = nameLabel.getText();
             vBox.getChildren().remove(nameLabel);
+            nameTextField.setText(current);
             vBox.getChildren().add(0,nameTextField);
             nameTextField.setOnKeyPressed(keyEvent -> {
                 if (keyEvent.getCode() == KeyCode.ENTER)  {
@@ -95,6 +94,8 @@ public class FXMLDocumentController implements Initializable {
                 vBox.getChildren().add(0,nameLabel);
             }
             
+            String current = descriptionText.getText();
+            descriptionTextField.setText(current);
             vBox.getChildren().remove(descriptionText);
             vBox.getChildren().add(1,descriptionTextField);
             descriptionTextField.setOnKeyPressed(keyEvent -> {
